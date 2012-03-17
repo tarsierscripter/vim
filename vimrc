@@ -4,7 +4,6 @@ call pathogen#infect()
 call pathogen#helptags()"}}}
 
 "Autocmds"{{{
-cd ~\Documents\Vim
 augroup haskell
 	au BufNewFile,BufRead,BufCreate *.hs compiler ghc
 	au BufNewFile,BufRead,BufCreate *.hs setlocal expandtab
@@ -106,6 +105,7 @@ let g:surround_40 = "(\r)"
 let g:surround_91 = "[\r]"
 "}}}
 
+" GUI-Specific Settings"{{{
 if has('gui_running')
 	set guioptions=ac
 	set guifont=Andale_Mono:h12:cANSI
@@ -113,6 +113,7 @@ if has('gui_running')
 	colo xoria256
 	let g:haddock_browser=$HOME."/AppData/Local/Google/Chrome/Application/chrome.exe"
 	set columns=126 lines=34
+	cd ~\Documents\Vim
 else
 	colo elflord
-endif
+endif"}}}
