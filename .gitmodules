@@ -16,6 +16,7 @@
 [submodule "bundle/vimproc"]
 	path = bundle/vimproc
 	url = git://github.com/Shougo/vimproc.git
+	ignore = dirty
 [submodule "bundle/ghcmod"]
 	path = bundle/ghcmod
 	url = git://github.com/eagletmt/ghcmod-vim.git
