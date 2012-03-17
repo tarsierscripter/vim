@@ -5,7 +5,7 @@ call pathogen#helptags()"}}}
 
 "Autocmds"{{{
 augroup haskell
-	au BufNewFile,BufRead,BufCreate *.hs compiler ghc
+	" au BufNewFile,BufRead,BufCreate *.hs compiler ghc
 	au BufNewFile,BufRead,BufCreate *.hs setlocal expandtab
 	au BufNewFile,BufRead,BufCreate *.hs setlocal shiftwidth=4
 	au BufNewFile,BufRead,BufCreate *.hs setlocal tabstop=4
