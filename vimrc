@@ -1,5 +1,5 @@
 "Pathogen"{{{
-so $VIM\bundle\vim-pathogen\autoload\pathogen.vim 
+so $VIM/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()"}}}
 
