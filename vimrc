@@ -61,7 +61,6 @@ nmap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 "}}}
 
 "Options"{{{
-set columns=126 lines=34
 set autoindent
 set background=dark
 set backspace=2
@@ -70,8 +69,6 @@ set cmdheight=1
 set completeopt=menu,menuone,longest
 set directory=$VIM/swap
 set foldmethod=marker
-set guifont=Andale_Mono:h12:cANSI
-set guioptions=ac
 set hidden
 set history=1000
 set hlsearch
@@ -89,7 +86,6 @@ set showmatch
 set showmode
 set smarttab
 set softtabstop=0
-set t_Co=256 | colo xoria256
 set tabstop=4
 set undodir=$VIM/undo
 set undofile
@@ -101,7 +97,6 @@ set window=0
 
 "Plugin Variables"{{{
 let g:GetLatestVimScripts_allowautoinstall=1
-let g:haddock_browser=$HOME."/AppData/Local/Google/Chrome/Application/chrome.exe"
 let g:haddock_docdir='/Haskell Platform/2011.2.0.1/doc/html/'
 let g:haddock_indexfile=$VIM."/Haddock/haddock_index.vim"
 let g:haddock_indexfiledir=$VIM."/Haddock/"
@@ -111,3 +106,13 @@ let g:surround_40 = "(\r)"
 let g:surround_91 = "[\r]"
 "}}}
 
+if has('gui_running')
+	set guioptions=ac
+	set guifont=Andale_Mono:h12:cANSI
+	set t_Co=256
+	colo xoria256
+	let g:haddock_browser=$HOME."/AppData/Local/Google/Chrome/Application/chrome.exe"
+	set columns=126 lines=34
+else
+	colo elflord
+endif
