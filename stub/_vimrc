@@ -1,0 +1,5 @@
+" Stub file to redirect to ~/.vim
+let $VIM=$HOME."\\.vim"
+let $MYVIMRC=$VIM."\\vimrc"
+set runtimepath=$VIM,$VIMRUNTIME
+so $MYVIMRC

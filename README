@@ -1,0 +1,2 @@
+Put the file in stub (_vimrc) into your home directory. This points to this
+directory (.vim) so that everything works.
