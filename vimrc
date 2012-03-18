@@ -110,10 +110,10 @@ if has('gui_running')
 	set guioptions=ac
 	set guifont=Andale_Mono:h12:cANSI
 	set t_Co=256
-	colo xoria256
+	colo vividchalk
 	let g:haddock_browser=$HOME."/AppData/Local/Google/Chrome/Application/chrome.exe"
 	set columns=126 lines=34
 	cd ~\Documents\Vim
 else
 	colo elflord
-endif"}}}
+endif "}}}
