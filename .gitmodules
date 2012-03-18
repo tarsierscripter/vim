@@ -20,3 +20,12 @@
 [submodule "bundle/ghcmod"]
 	path = bundle/ghcmod
 	url = git://github.com/eagletmt/ghcmod-vim.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = git://github.com/vim-scripts/Tabular.git
+[submodule "bundle/syntaxhaskell"]
+	path = bundle/syntaxhaskell
+	url = git://github.com/vim-scripts/syntaxhaskell.vim.git
+[submodule "bundle/unimpaired"]
+	path = bundle/unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
