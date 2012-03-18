@@ -13,12 +13,9 @@ augroup haskell
 	au BufEnter *.hs nmap <buffer> <C-G> :LaunchInterpreter ghci<CR>
 	au BufWritePost *.hs GhcModCheck
 augroup END
-augroup scheme
 	au BufNewFile,BufRead,BufCreate,BufEnter *.scm nmap <buffer> <C-G> :LaunchInterpreter mit-scheme\ --load<CR>
-augroup END
-augroup html
 	au BufNewFile,BufRead,BufCreate *.html compiler tidy
-augroup END
+	au BufWritePost vimrc so %
 "}}}
 
 "Commands"{{{
@@ -107,6 +104,7 @@ let g:surround_91 = "[\r]"
 
 " GUI-Specific Settings"{{{
 if has('gui_running')
+	set formatprg=$VIM\bin\par.exe
 	set guioptions=ac
 	set guifont=Andale_Mono:h12:cANSI
 	set t_Co=256
