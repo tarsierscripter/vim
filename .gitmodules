@@ -32,3 +32,7 @@
 [submodule "bundle/vividchalk"]
 	path = bundle/vividchalk
 	url = git://github.com/tpope/vim-vividchalk.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = git://github.com/vim-scripts/The-NERD-tree.git
+	ignore = dirty

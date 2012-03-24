@@ -1,11 +1,11 @@
 "Pathogen"{{{
 so $VIM/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
-call pathogen#helptags()"}}}
+call pathogen#helptags()
+"}}}
 
 "Autocmds"{{{
 augroup haskell
-	" au BufNewFile,BufRead,BufCreate *.hs compiler ghc
 	au BufNewFile,BufRead,BufCreate *.hs setlocal expandtab
 	au BufNewFile,BufRead,BufCreate *.hs setlocal shiftwidth=4
 	au BufNewFile,BufRead,BufCreate *.hs setlocal tabstop=4
@@ -13,7 +13,7 @@ augroup haskell
 	au BufEnter *.hs nmap <buffer> <C-G> :LaunchInterpreter ghci<CR>
 	au BufWritePost *.hs GhcModCheck
 augroup END
-	au BufNewFile,BufRead,BufCreate,BufEnter *.scm nmap <buffer> <C-G> :LaunchInterpreter mit-scheme\ --load<CR>
+	au BufEnter *.scm nmap <buffer> <C-G> :LaunchInterpreter mit-scheme\ --load<CR>
 	au BufNewFile,BufRead,BufCreate *.html compiler tidy
 	au BufWritePost vimrc so %
 "}}}
@@ -43,17 +43,19 @@ syntax on
 "}}}
 
 "Keybindings"{{{
-nmap <Leader>gt :GhcModType<CR>
-nmap <Leader>gT :GhcModTypeClear<CR>
-nmap <Leader>gc :GhcModCheck<CR>
-nmap <Leader>gl :GhcModLint<CR>
 imap <PageDown> <C-O><C-D>
 imap <PageUp> <C-O><C-U>
-vmap <PageDown> <C-D>
-vmap <PageUp> <C-U>
 nmap <PageDown> <C-D>
 nmap <PageUp> <C-U>
+nmap <silent> <Leader>gc :GhcModCheck<CR>
+nmap <silent> <Leader>gl :GhcModLint<CR>
+nmap <silent> <Leader>gt :GhcModType<CR>
+nmap <silent> <Leader>gT :GhcModTypeClear<CR>
+nmap <silent> <Leader>N :cd %:p:h<Bar>:NERDTree<CR>
+nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+vmap <PageDown> <C-D>
+vmap <PageUp> <C-U>
 "}}}
 
 "Options"{{{
@@ -114,4 +116,5 @@ if has('gui_running')
 	cd ~\Documents\Vim
 else
 	colo elflord
-endif "}}}
+endif
+"}}}
