@@ -95,11 +95,7 @@ set window=0
 
 "Plugin Variables"{{{
 let g:GetLatestVimScripts_allowautoinstall=1
-let g:haddock_docdir='/Haskell Platform/2011.2.0.1/doc/html/'
-let g:haddock_indexfile=$VIM."/Haddock/haddock_index.vim"
-let g:haddock_indexfiledir=$VIM."/Haddock/"
 let g:haskell_indent_if=2
-let g:Tlist_Inc_Winwidth=0
 let g:surround_40 = "(\r)"
 let g:surround_91 = "[\r]"
 "}}}
