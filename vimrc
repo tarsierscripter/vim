@@ -5,41 +5,52 @@ call pathogen#helptags()
 "}}}
 
 "Autocmds"{{{
-augroup haskell
 	au BufNewFile,BufRead,BufCreate *.hs setlocal expandtab
 	au BufNewFile,BufRead,BufCreate *.hs setlocal shiftwidth=4
 	au BufNewFile,BufRead,BufCreate *.hs setlocal tabstop=4
 	au BufNewFile,BufRead,BufCreate *.hs setlocal commentstring=\ --%s
-	au BufEnter *.hs nmap <buffer> <C-G> :LaunchInterpreter ghci<CR>
 	au BufWritePost *.hs GhcModCheck
-augroup END
-	au BufEnter *.scm nmap <buffer> <C-G> :LaunchInterpreter mit-scheme\ --load<CR>
 	au BufNewFile,BufRead,BufCreate *.html compiler tidy
-	au BufWritePost vimrc so %
+	au BufEnter *.hs nmap <buffer> <C-G> :silent call LaunchInterpreter('ghci')<CR>
+	au BufEnter *.scm nmap <buffer> <C-G> :silent call LaunchInterpreter('mit-scheme --load')<CR>
 "}}}
 
 "Commands"{{{
-command! -nargs=1 Silent | exec ':silent !'.<q-args> | exec ':redraw!'
-command! -nargs=1 LaunchInterpreter exec ':silent let vimDir=getcwd()' | exec ':silent cd %:p:h' | exec ':silent !start '.<q-args>.' %:t' | exec ':silent cd ' .vimDir
 command! DeleteTrailingWs :%s/\s\+$//
 command! Restart exec ':w' | exec ':silent !killall ghc; runhaskell %&' | exec ':redraw!'
 command! Tidy exec '%!tidy -q -w 0 -asxhtml'
 command! TidyIndent exec '%!tidy -i -q -w 0 -asxhtml'
 command! Untab exec '%s/\t/  /g'
-command! GLVSort exec 'silent GLVS' | exec '3,$!sort -fk4 | column -t' | exec 'w'
 "}}}
 
-"Filetype stuff"{{{
+"Functions"{{{
+function! LaunchInterpreter(interp)
+	let vimDir=getcwd()
+	exec ':silent cd %:p:h'
+	if a:interp == 'mit-scheme --load'
+		let $MITSCHEME_BACKGROUND = '0x000000'
+		let $MITSCHEME_FONT = 'Andale Mono 12'
+		let $MITSCHEME_FOREGROUND = '0xdddddd'
+		let $MITSCHEME_GEOMETRY = '75,150,1024,660'
+		let $MITSCHEME_LIBRARY_PATH = 'C:\Program Files (x86)\MIT-GNU Scheme\lib'
+		exec ':silent !start ' . a:interp . ' ' . shellescape(expand('%:p'))
+		let $MITSCHEME_BACKGROUND = ''
+		let $MITSCHEME_FOREGROUND = ''
+		let $MITSCHEME_FONT = ''
+		let $MITSCHEME_GEOMETRY = ''
+		let $MITSCHEME_LIBRARY_PATH = ''
+	else
+		exec ':silent !start ' . a:interp . ' ' . shellescape(expand('%:p'))
+	endif
+	exec ':silent cd ' . vimDir
+endfunc
+"}}}
+
+"Syntax + Filetype stuff"{{{
 filetype indent on
 filetype on
 filetype plugin on
-"}}}
-
-"Highlight stuff"{{{
 syntax on
-" highlight ExtraWhitespace ctermbg=Black guibg=Black
-" highlight LongLine ctermbg=DarkYellow guibg=DarkYellow
-" match ExtraWhitespace /\s\+$/
 "}}}
 
 "Keybindings"{{{
@@ -62,7 +73,6 @@ vmap <PageUp> <C-U>
 set autoindent
 set background=dark
 set backspace=2
-set cinoptions=:0,g0,(0,Ws,l1
 set cmdheight=1
 set completeopt=menu,menuone,longest
 set directory=$VIM/swap
@@ -72,7 +82,6 @@ set history=1000
 set hlsearch
 set incsearch
 set linebreak
-set nomodeline
 set nonumber
 set noreadonly
 set noshowcmd
@@ -90,18 +99,16 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 set wildmenu
-set window=0
 "}}}
 
 "Plugin Variables"{{{
-let g:GetLatestVimScripts_allowautoinstall=1
 let g:haskell_indent_if=2
 let g:surround_40 = "(\r)"
 let g:surround_91 = "[\r]"
 "}}}
 
 " GUI-Specific Settings"{{{
-if has('gui_running')
+if has('gui_win32')
 	set formatprg=$VIM\bin\par.exe
 	set guioptions=ac
 	set guifont=Andale_Mono:h12:cANSI
@@ -110,6 +117,7 @@ if has('gui_running')
 	let g:haddock_browser=$HOME."/AppData/Local/Google/Chrome/Application/chrome.exe"
 	set columns=126 lines=34
 	cd ~\Documents\Vim
+	winpos 1280 871
 else
 	colo elflord
 endif
