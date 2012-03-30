@@ -109,7 +109,6 @@ let g:surround_91 = "[\r]"
 
 " GUI-Specific Settings"{{{
 if has('gui_win32')
-	set formatprg=$VIM\bin\par.exe
 	set guioptions=ac
 	set guifont=Andale_Mono:h12:cANSI
 	set t_Co=256
