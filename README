@@ -1,5 +1,5 @@
-Put the file in stub (_vimrc) into your home directory. This points to this
-directory (.vim) so that everything works.
+Put the file in stub (_vimrc for Windows, .vimrc for Unix) into your home directory.
+This file points to this directory (.vim) so that everything works.
 
 In order to get the plugins, you'll need to run the following git commands:
 

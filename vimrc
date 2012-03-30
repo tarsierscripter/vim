@@ -118,6 +118,10 @@ if has('gui_win32')
 	cd ~\Documents\Vim
 	winpos 1280 871
 else
-	colo elflord
+	if has('unix')
+		colo xoria256
+	else
+		colo elflord
+	endif
 endif
 "}}}
