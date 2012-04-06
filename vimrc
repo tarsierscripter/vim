@@ -102,7 +102,6 @@ set wildmenu
 "}}}
 
 "Plugin Variables"{{{
-let g:haskell_indent_if=2
 let g:surround_40 = "(\r)"
 let g:surround_91 = "[\r]"
 "}}}
@@ -113,10 +112,9 @@ if has('gui_win32')
 	set guifont=Andale_Mono:h12:cANSI
 	set t_Co=256
 	colo vividchalk
-	let g:haddock_browser=$HOME."/AppData/Local/Google/Chrome/Application/chrome.exe"
 	set columns=126 lines=34
-	cd ~\Documents\Vim
-	winpos 1280 871
+	cd ~\Documents\Projects
+	winpos 1280 873
 else
 	if has('unix')
 		colo xoria256
