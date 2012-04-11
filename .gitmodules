@@ -39,3 +39,6 @@
 [submodule "bundle/indenthaskell"]
 	path = bundle/indenthaskell
 	url = git@github.com:chongli/indenthaskell.vim.git
+[submodule "bundle/html-template-syntax"]
+	path = bundle/html-template-syntax
+	url = git://github.com/gregwebs/html-template-syntax.git
