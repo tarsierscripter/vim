@@ -36,3 +36,6 @@
 	path = bundle/nerdtree
 	url = git://github.com/vim-scripts/The-NERD-tree.git
 	ignore = dirty
+[submodule "bundle/indenthaskell"]
+	path = bundle/indenthaskell
+	url = git@github.com:chongli/indenthaskell.vim.git
