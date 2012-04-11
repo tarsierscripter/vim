@@ -9,7 +9,6 @@ call pathogen#helptags()
 	au BufNewFile,BufRead,BufCreate *.hs setlocal shiftwidth=4
 	au BufNewFile,BufRead,BufCreate *.hs setlocal tabstop=4
 	au BufNewFile,BufRead,BufCreate *.hs setlocal commentstring=\ --%s
-	au BufWritePost *.hs GhcModCheck
 	au BufNewFile,BufRead,BufCreate *.html compiler tidy
 	au BufEnter *.hs nmap <buffer> <C-G> :silent call LaunchInterpreter('ghci')<CR>
 	au BufEnter *.scm nmap <buffer> <C-G> :silent call LaunchInterpreter('mit-scheme --load')<CR>
@@ -104,6 +103,8 @@ set wildmenu
 "Plugin Variables"{{{
 let g:surround_40 = "(\r)"
 let g:surround_91 = "[\r]"
+let g:NERDTreeBookmarksFile = $VIM . "\\NERDTreeBookmarks"
+let g:NERDTreeShowBookmarks=1
 "}}}
 
 " GUI-Specific Settings"{{{
@@ -123,3 +124,4 @@ else
 	endif
 endif
 "}}}
+
