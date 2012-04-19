@@ -46,3 +46,6 @@
 	path = bundle/nerdcommenter
 	url = git://github.com/vim-scripts/The-NERD-Commenter.git
 	ignore = dirty
+[submodule "bundle/haskell-cabal-syntax"]
+	path = bundle/haskell-cabal-syntax
+	url = git://github.com/Twinside/vim-syntax-haskell-cabal.git
