@@ -5,10 +5,12 @@ call pathogen#helptags()
 "}}}
 
 "Autocmds"{{{
-	au BufNewFile,BufRead,BufCreate *.hs setlocal expandtab
-	au BufNewFile,BufRead,BufCreate *.hs setlocal shiftwidth=4
-	au BufNewFile,BufRead,BufCreate *.hs setlocal tabstop=4
-	au BufNewFile,BufRead,BufCreate *.hs setlocal commentstring=\ --%s
+aug haskell
+	au!
+	au BufNewFile,BufRead,BufCreate *.hs setfiletype haskell
+	au BufNewFile,BufRead,BufCreate *.cabal setfiletype haskell
+aug END
+	au FileType haskell setlocal expandtab shiftwidth=4 tabstop=4 commentstring=\ --%s
 	au BufNewFile,BufRead,BufCreate *.html compiler tidy
 	au BufEnter *.hs nmap <buffer> <C-G> :silent call LaunchInterpreter('ghci')<CR>
 	au BufEnter *.scm nmap <buffer> <C-G> :silent call LaunchInterpreter('mit-scheme --load')<CR>
