@@ -38,7 +38,7 @@
 	ignore = dirty
 [submodule "bundle/indenthaskell"]
 	path = bundle/indenthaskell
-	url = git@github.com:chongli/indenthaskell.vim.git
+	url = git://github.com/chongli/indenthaskell.vim.git
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git://github.com/vim-scripts/The-NERD-Commenter.git
@@ -46,3 +46,6 @@
 [submodule "bundle/haskell-cabal-syntax"]
 	path = bundle/haskell-cabal-syntax
 	url = git://github.com/Twinside/vim-syntax-haskell-cabal.git
+[submodule "bundle/xoria256"]
+	path = bundle/xoria256
+	url = git://github.com/chongli/xoria256.vim.git
